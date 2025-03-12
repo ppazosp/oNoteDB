@@ -1,5 +1,4 @@
 package ochat.onotedb.domain.entities;
-
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -9,8 +8,10 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
-public class Subject {
+public class Reminder {
     String id;
     String name;
-    String photo;
+    String date;
+    String description;
+    String subject;
 }
