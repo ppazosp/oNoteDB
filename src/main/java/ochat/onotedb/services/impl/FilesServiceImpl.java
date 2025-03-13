@@ -40,4 +40,9 @@ public class FilesServiceImpl implements FilesService {
     public List<Files> getFilesByClassAndSubject(String className, String subject) {
         return fileRepository.findByClassesInAndSubject(Collections.singletonList(className), subject);
     }
+
+    @Override
+    public Files save(Files files) {
+        return fileRepository.save(files);
+    }
 }

@@ -1,4 +1,5 @@
-package ochat.onotedb.domain.entities;
+package ochat.onotedb.domain.entities.dto;
+
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -13,7 +14,7 @@ import java.util.List;
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
-public class Files {
+public class DriveFile {
     String id;
     String name;
     String subject;
@@ -22,4 +23,6 @@ public class Files {
     List<String> classes;
     String owner;
     LocalDate date;
+    MultipartFile file;
 }
+

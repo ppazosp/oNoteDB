@@ -12,4 +12,6 @@ public interface FilesService {
     Optional<Files> findById(String id);
 
     List<Files> getFilesByClassAndSubject(String className, String subject);
+
+    Files save(Files files);
 }

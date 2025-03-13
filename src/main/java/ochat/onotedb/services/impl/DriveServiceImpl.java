@@ -4,6 +4,8 @@ import com.google.api.client.http.InputStreamContent;
 import com.google.api.services.drive.Drive;
 import com.google.api.services.drive.model.File;
 import com.google.api.services.drive.model.Permission;
+import ochat.onotedb.domain.entities.Files;
+import ochat.onotedb.domain.entities.dto.DriveFile;
 import ochat.onotedb.services.DriveService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
@@ -23,10 +25,13 @@ public class DriveServiceImpl implements DriveService {
     private String sharedFolderId;
 
     @Override
-    public String uploadFile(MultipartFile file) throws IOException {
+    public String uploadFile(MultipartFile data) throws IOException {
         try {
             File fileMetadata = new File();
-            fileMetadata.setName(file.getOriginalFilename());
+            fileMetadata.setName(data.getName());
+
+
+
 
             // Si hay un folder compartido, agrégalo
             if (sharedFolderId != null && !sharedFolderId.isEmpty()) {
@@ -34,7 +39,7 @@ public class DriveServiceImpl implements DriveService {
             }
 
             InputStreamContent mediaContent = new InputStreamContent(
-                    file.getContentType(), file.getInputStream());
+                    data.getContentType(), data.getInputStream());
 
             File uploadedFile = googleDriveClient.files()
                     .create(fileMetadata, mediaContent)
