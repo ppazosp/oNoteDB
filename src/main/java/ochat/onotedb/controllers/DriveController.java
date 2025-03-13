@@ -28,7 +28,7 @@ public class DriveController {
     @PutMapping("/upload")
     public ResponseEntity<String> uploadFile(@RequestBody DriveFile file) {
         try {
-            String url = driveService.uploadFile(file.getFile());
+            String url = driveService.uploadFile(file.getFile64());
             Files fileDB = new Files();
             fileDB.setName(file.getName());
             fileDB.setSubject(file.getSubject());

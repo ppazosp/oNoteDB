@@ -23,6 +23,6 @@ public class DriveFile {
     List<String> classes;
     String owner;
     LocalDate date;
-    MultipartFile file;
+    String file64;
 }
 
