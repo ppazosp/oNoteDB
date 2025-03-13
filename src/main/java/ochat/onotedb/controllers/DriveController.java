@@ -28,18 +28,23 @@ public class DriveController {
     @PutMapping("/upload")
     public ResponseEntity<String> uploadFile(@RequestBody DriveFile file) {
         try {
-            String url = driveService.uploadFile(file.getFile64());
-            Files fileDB = new Files();
-            fileDB.setName(file.getName());
-            fileDB.setSubject(file.getSubject());
-            fileDB.setExt(file.getExt());
-            fileDB.setUrl(url);
-            fileDB.setClasses(file.getClasses());
-            fileDB.setOwner(file.getOwner());
-            fileDB.setDate(file.getDate());
+            String url = driveService.uploadFile(file.getFile64(), file.getName(), file.getExt());
+
+            Files fileDB = Files.builder()
+                    .name(file.getName())
+                    .subject(file.getSubject())
+                    .ext(file.getExt())
+                    .url(url)
+                    .classes(file.getClasses())
+                    .owner(file.getOwner())
+                    .date(file.getDate())
+                    .build();
+
+
             filesService.save(fileDB);
             return ResponseEntity.ok(url);
         } catch (IOException e) {
+            e.printStackTrace();
             return ResponseEntity.status(500).body("Error al subir el archivo: " + e.getMessage());
         }
     }
