@@ -24,4 +24,10 @@ public class FilesController {
         List<Files> files = fileService.findBySubject(subject);
         return new ArrayList<>(files);
     }
+
+    @GetMapping(path = "/classfiles")
+    public List<Files> listClassFiles(@RequestParam() String classname, @RequestParam() String subject) {
+        List<Files> files = fileService.getFilesByClassAndSubject(classname, subject);
+        return new ArrayList<>(files);
+    }
 }

@@ -18,5 +18,6 @@ public class Class {
     String start_date;
     String end_date;
     String subject;
+    String resume;
 }
 

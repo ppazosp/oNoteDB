@@ -1,11 +1,13 @@
 package ochat.onotedb.services.impl;
 
+import jakarta.websocket.OnClose;
 import ochat.onotedb.domain.entities.Files;
 import ochat.onotedb.repositories.FilesRepository;
 import ochat.onotedb.services.FilesService;
 import org.springframework.stereotype.Service;
 
 
+import java.util.Collections;
 import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
@@ -32,5 +34,10 @@ public class FilesServiceImpl implements FilesService {
     @Override
     public Optional<Files> findById(String id) {
         return fileRepository.findById(id);
+    }
+
+    @Override
+    public List<Files> getFilesByClassAndSubject(String className, String subject) {
+        return fileRepository.findByClassesInAndSubject(Collections.singletonList(className), subject);
     }
 }

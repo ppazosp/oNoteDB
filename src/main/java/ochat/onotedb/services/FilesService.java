@@ -10,4 +10,6 @@ public interface FilesService {
     List<Files> findBySubject(String subject);
 
     Optional<Files> findById(String id);
+
+    List<Files> getFilesByClassAndSubject(String className, String subject);
 }
