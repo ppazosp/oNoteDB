@@ -1,6 +1,6 @@
 # oNoteDB - Spring Boot REST API
 
-**oNoteDB** is the backend service for the **oNote** mobile application. It provides a **RESTful API** for managing data related to university lecture transcription, assignments, and file storage. This server is built with **Spring Boot** and connects to a **MongoDB NoSQL database**.
+**oNoteDB** is the backend service for the **oNote** mobile application. It provides a **REST API** for managing data related to university lecture transcription, assignments, and file storage. This server is built with **Spring Boot** and connects to a **MongoDB NoSQL database**.
 
 ---
 ## Features
@@ -17,7 +17,7 @@
 - **Spring Boot**: Framework for building RESTful web services.
 - **MongoDB**: NoSQL database for flexible and scalable data storage.
 - **Spring Data MongoDB**: Facilitates seamless interaction with MongoDB.
-- **REST API Design**: Follows RESTful best practices for API development.
+- **REST API Design**: Follows REST best practices for API development.
 
 ---
 
